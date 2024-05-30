@@ -1,11 +1,3 @@
-const celdas = document.getElementsByClassName('celda');
-
-for (let i = 0; i < celdas.length; i++) {
-    celdas[i].addEventListener('click', () =>{
-        console.log(`Div ${i + 1} seleccionada`);
-    });
-}
-
 let jugadorActual = 'X';
 let juegoActivo = true;
 const gameState = ['', '', '', '', '', '', '', '', ''];
@@ -19,8 +11,4 @@ const winningConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-
-
-
-
 
