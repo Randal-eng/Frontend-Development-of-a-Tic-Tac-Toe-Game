@@ -45,14 +45,13 @@ const handleResultValidation = () => {
 
     if (roundWon) {
         gameActive = false;
-        $('#messageWinnerPlayer').text(`Ganador: Jugador ${currentPlayer}`);
         updateWinMessage();
         return;
     }
 
     if (!gameState.includes('')) {
         gameActive = false;
-        alert('¡Empate!');
+        updateNoWin();
         return;
     }
 
@@ -69,7 +68,19 @@ const restartGame = () => {
     currentPlayer = 'X';
     gameState.fill('');
     celdas.forEach(cell => (cell.textContent = ''));
+    emptyCurrentMessage();
+}
+
+const emptyCurrentMessage = () => {
     $('#messageCurrentPlayer').text(` `);
+
+}
+
+const updateNoWin = () => {
+    $('#messageNoWin').text(`EMPATE!!!`).show();
+    setTimeout(() => {
+        $('#messageNoWin').hide();
+    }, 3000);
 }
 
 const updateCurrentMessage = () => {
@@ -79,10 +90,12 @@ const updateCurrentMessage = () => {
 const updateWinMessage = () => {
     $('#messageWinnerPlayer').text(`Ganador: Jugador ${currentPlayer}`).show();
     $('.div__main, .button, .messageCurrentPlayer, .tittle').addClass('blur');
+    $('button').prop('disabled', true);
     setTimeout(() => {
         $('#messageWinnerPlayer').hide();
         $('.div__main, .messageCurrentPlayer, .button, .tittle').removeClass('blur');
-    }, 3000);
+        $('button').prop('disabled', false);
+    }, 2000);
 }
 
 celdas.forEach(cell => cell.addEventListener('click', handleCellClick));
