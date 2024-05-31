@@ -11,6 +11,7 @@ body {
     height: 100vh;
     margin: 0;
     flex-direction: column;
+    background-color: #adadad;
 }
 
 .div__main {
@@ -36,22 +37,57 @@ body {
 .celda2,
 .celda4,
 .celda5 {
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
 }
 
 
 .celda3,
 .celda6 {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #000;
 }
 
 .celda7,
 .celda8 {
-    border-right: 1px solid #000;
+    border-right: 2px solid #000;
 }
-
 
 .button {
     margin-top: 20px;
+}
+
+.messageCurrentPlayer {
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px 0px rgba(175, 175, 175, 1);
+    position: relative;
+    left: 40%;
+    text-align: center;
+    padding: 12px;
+}
+
+#messageWinnerPlayer {
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px 0px rgba(175, 175, 175, 1);
+    font-weight: 600;
+    font-size: 20px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    padding: 30px;
+    display: none;
+    animation: fadeIn 0.5s ease-out forwards;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
 }
