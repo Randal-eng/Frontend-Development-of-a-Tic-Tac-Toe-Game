@@ -12,6 +12,7 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
+
 const celdas = document.querySelectorAll('.celda');
 
 const handleCellClick = (event) => {
