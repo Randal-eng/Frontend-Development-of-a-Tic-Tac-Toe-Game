@@ -11,7 +11,6 @@ body {
     height: 100vh;
     margin: 0;
     flex-direction: column;
-    background-color: #adadad;
 }
 
 .div__main {
@@ -83,7 +82,7 @@ body {
     z-index: 10;
 }
 
-.messageNoWin{
+.messageNoWin {
     width: 200px;
     height: 50px;
     text-align: center;
@@ -103,7 +102,48 @@ body {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: scale(0.5); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
+@media only screen and (max-width: 800px) {
+    body{
+        justify-content: space-evenly;
+    }
+
+    h1{
+
+    }
+
+    .messageCurrentPlayer{
+        left: auto;
+        box-shadow: 0px 4px 10px 0px rgba(175, 175, 175, 1);
+    }
+
+    #messageWinnerPlayer{
+        
+    }
+
+    .div__main{
+        width: 300px;
+        height: 300px;
+    }
+
+    .celda{
+        width: 100px;
+        height: 100px;
+    }
+
+    .messageNoWin{
+        bottom: auto;
+        margin-top: 5%;
+        box-shadow: -1px 4px 5px 0px rgba(175, 175, 175, 1);
+    }
+}
