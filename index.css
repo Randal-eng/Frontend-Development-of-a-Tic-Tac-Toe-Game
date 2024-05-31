@@ -1,22 +1,57 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    font-family: "Roboto", sans-serif;
 }
 
-.div__main{
-    width: 200px;
-    height: 200px;
-    border: 1px solid #000;
-    margin: 0 auto;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.div__main {
+    width: 400px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
 }
 
-.celda{
-    width: 60px;
-    height: 60px;
-    border: 1px solid #000;
+.celda {
+    width: 128px;
+    height: 128px;
     padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px
+}
+
+.celda1,
+.celda2,
+.celda4,
+.celda5 {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+
+.celda3,
+.celda6 {
+    border-bottom: 1px solid #000;
+}
+
+.celda7,
+.celda8 {
+    border-right: 1px solid #000;
+}
+
+
+.button {
+    margin-top: 20px;
 }
