@@ -45,7 +45,8 @@ const handleResultValidation = () => {
 
     if (roundWon) {
         gameActive = false;
-        alert(`¡Jugador ${currentPlayer} ha ganado!`);
+        $('#messageWinnerPlayer').text(`Ganador: Jugador ${currentPlayer}`);
+        updateWinMessage();
         return;
     }
 
@@ -60,6 +61,7 @@ const handleResultValidation = () => {
 
 const switchPlayer = () => {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    updateCurrentMessage();
 }
 
 const restartGame = () => {
@@ -67,6 +69,20 @@ const restartGame = () => {
     currentPlayer = 'X';
     gameState.fill('');
     celdas.forEach(cell => (cell.textContent = ''));
+    $('#messageCurrentPlayer').text(` `);
+}
+
+const updateCurrentMessage = () => {
+    $('#messageCurrentPlayer').text(`Siguiente turno: Jugador ${currentPlayer}`);
+}
+
+const updateWinMessage = () => {
+    $('#messageWinnerPlayer').text(`Ganador: Jugador ${currentPlayer}`).show();
+    $('.div__main, .button, .messageCurrentPlayer, .tittle').addClass('blur');
+    setTimeout(() => {
+        $('#messageWinnerPlayer').hide();
+        $('.div__main, .messageCurrentPlayer, .button, .tittle').removeClass('blur');
+    }, 3000);
 }
 
 celdas.forEach(cell => cell.addEventListener('click', handleCellClick));
