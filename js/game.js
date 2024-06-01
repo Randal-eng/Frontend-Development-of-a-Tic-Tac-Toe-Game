@@ -61,6 +61,11 @@ const handleResultValidation = () => {
 
 const switchPlayer = () => {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    if (currentPlayer !== 'X') {
+        playSoundX();
+    } else {
+        playSoundO();
+    }
     updateCurrentMessage();
 }
 
@@ -69,5 +74,7 @@ const restartGame = () => {
     currentPlayer = 'X';
     gameState.fill('');
     celdas.forEach(cell => (cell.textContent = ''));
+    playSoundRestar();
     emptyCurrentMessage();
 }
+
