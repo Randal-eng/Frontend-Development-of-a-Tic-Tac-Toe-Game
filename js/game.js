@@ -12,8 +12,6 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
-const celdas = document.querySelectorAll('.celda');
-
 const handleCellClick = (event) => {
     const clickedCell = event.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('index'));
@@ -22,10 +20,13 @@ const handleCellClick = (event) => {
         return;
     }
 
-    gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.textContent = currentPlayer;
-
+    updateGameState(clickedCellIndex, clickedCell);
     handleResultValidation();
+}
+
+const updateGameState = (index, cell) => {
+    gameState[index] = currentPlayer;
+    cell.textContent = currentPlayer;
 }
 
 const handleResultValidation = () => {
@@ -70,34 +71,3 @@ const restartGame = () => {
     celdas.forEach(cell => (cell.textContent = ''));
     emptyCurrentMessage();
 }
-
-const emptyCurrentMessage = () => {
-    $('#messageCurrentPlayer').text(` `);
-
-}
-
-const updateNoWin = () => {
-    $('#messageNoWin').text(`EMPATE!!!`).show();
-    setTimeout(() => {
-        $('#messageNoWin').hide();
-    }, 3000);
-}
-
-const updateCurrentMessage = () => {
-    $('#messageCurrentPlayer').text(`Siguiente turno: Jugador ${currentPlayer}`);
-}
-
-const updateWinMessage = () => {
-    $('#messageWinnerPlayer').text(`Ganador: Jugador ${currentPlayer}`).show();
-    $('.div__main, .button, .messageCurrentPlayer, .tittle').addClass('blur');
-    $('button').prop('disabled', true);
-    setTimeout(() => {
-        $('#messageWinnerPlayer').hide();
-        $('.div__main, .messageCurrentPlayer, .button, .tittle').removeClass('blur');
-        $('button').prop('disabled', false);
-    }, 2000);
-}
-
-celdas.forEach(cell => cell.addEventListener('click', handleCellClick));
-document.getElementById('restartButton').addEventListener('click', restartGame);
-document.addEventListener('DOMContentLoaded', restartGame);

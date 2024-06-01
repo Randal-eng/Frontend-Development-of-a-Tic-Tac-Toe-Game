@@ -56,95 +56,18 @@ body {
     margin-top: 20px;
 }
 
-.messageCurrentPlayer {
-    width: 250px;
-    height: 50px;
-    border-radius: 8px;
-    box-shadow: 0px 10px 10px 0px rgba(175, 175, 175, 1);
-    position: relative;
-    left: 40%;
-    text-align: center;
-    padding: 12px;
-}
-
-#messageWinnerPlayer {
-    position: absolute;
-    border-radius: 8px;
-    box-shadow: 0px 10px 10px 0px rgba(175, 175, 175, 1);
-    font-weight: 600;
-    font-size: 20px;
-    width: 300px;
-    height: 100px;
-    text-align: center;
-    padding: 30px;
-    display: none;
-    animation: fadeIn 0.5s ease-out forwards;
-    background-color: #fff;
-    z-index: 10;
-}
-
-.messageNoWin {
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 10px 10px 0px rgba(175, 175, 175, 1);
-    color: #a41414;
-    font-size: large;
-    font-weight: 500;
-    position: relative;
-    bottom: 5%;
-    display: none;
-}
-
-.blur {
-    filter: blur(5px);
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 @media only screen and (max-width: 800px) {
-    body{
+    body {
         justify-content: space-evenly;
     }
 
-    h1{
-
-    }
-
-    .messageCurrentPlayer{
-        left: auto;
-        box-shadow: 0px 4px 10px 0px rgba(175, 175, 175, 1);
-    }
-
-    #messageWinnerPlayer{
-        
-    }
-
-    .div__main{
+    .div__main {
         width: 300px;
         height: 300px;
     }
 
-    .celda{
+    .celda {
         width: 100px;
         height: 100px;
-    }
-
-    .messageNoWin{
-        bottom: auto;
-        margin-top: 5%;
-        box-shadow: -1px 4px 5px 0px rgba(175, 175, 175, 1);
     }
 }
