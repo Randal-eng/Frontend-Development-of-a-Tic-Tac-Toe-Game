@@ -22,11 +22,17 @@ const handleCellClick = (event) => {
 
     updateGameState(clickedCellIndex, clickedCell);
     handleResultValidation();
+
+    if (gameMode === 'Single Player' && gameActive && currentPlayer === 'O') {
+        setTimeout(handleComputerMove, 1000)
+    }
 }
 
 const updateGameState = (index, cell) => {
     gameState[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    document.getElementById('currentGame').textContent = `Game: ${gameMode}`;
+
 }
 
 const handleResultValidation = () => {
@@ -47,6 +53,7 @@ const handleResultValidation = () => {
     if (roundWon) {
         gameActive = false;
         updateWinMessage();
+        emptyCurrentMessage();
         return;
     }
 
@@ -69,6 +76,8 @@ const switchPlayer = () => {
     updateCurrentMessage();
 }
 
+
+
 const restartGame = () => {
     gameActive = true;
     currentPlayer = 'X';
@@ -78,3 +87,12 @@ const restartGame = () => {
     emptyCurrentMessage();
 }
 
+
+const handleComputerMove = () => {
+    document.getElementById('currentGame').textContent = `Game: ${gameMode}`;
+    let availableCells = gameState.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
+    let randomCellIndex = availableCells[Math.floor(Math.random() * availableCells.length)];
+    let cell = document.querySelector(`.celda[index="${randomCellIndex}"]`);
+    updateGameState(randomCellIndex, cell);
+    handleResultValidation();
+}

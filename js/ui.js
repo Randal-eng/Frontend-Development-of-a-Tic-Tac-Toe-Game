@@ -1,5 +1,6 @@
 const emptyCurrentMessage = () => {
     document.getElementById('messageCurrentPlayer').textContent = ` `;
+    document.getElementById('currentGame').textContent = ` `;
 }
 
 const updateNoWin = () => {
@@ -7,13 +8,13 @@ const updateNoWin = () => {
     messageWinnerPlayer.textContent = `No winner`;
     messageWinnerPlayer.style.display = 'block';
     playSoundEmpate();
-    document.querySelectorAll('.div__main, .button, .messageCurrentPlayer, .tittle').forEach(element => {
+    document.querySelectorAll('.div__main, .button, .messageCurrentPlayer, .tittle, .currentGame').forEach(element => {
         element.classList.add('blur');
     });
     document.querySelector('button').disabled = true;
     setTimeout(() => {
         messageWinnerPlayer.style.display = 'none';
-        document.querySelectorAll('.div__main, .messageCurrentPlayer, .button, .tittle').forEach(element => {
+        document.querySelectorAll('.div__main, .messageCurrentPlayer, .button, .tittle, .currentGame').forEach(element => {
             element.classList.remove('blur');
         });
         document.querySelector('button').disabled = false;
