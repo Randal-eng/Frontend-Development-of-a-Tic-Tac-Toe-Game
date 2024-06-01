@@ -1,4 +1,3 @@
-
 const playSoundX = () => {
     const soundClicked = new Audio('./sounds/happy-pop-3-185288.wav');
     soundClicked.play();

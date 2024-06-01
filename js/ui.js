@@ -4,7 +4,7 @@ const emptyCurrentMessage = () => {
 
 const updateNoWin = () => {
     const messageWinnerPlayer = document.getElementById('messageNoWin');
-    messageWinnerPlayer.textContent = `Empate!!!`;
+    messageWinnerPlayer.textContent = `No winner`;
     messageWinnerPlayer.style.display = 'block';
     playSoundEmpate();
     document.querySelectorAll('.div__main, .button, .messageCurrentPlayer, .tittle').forEach(element => {
@@ -21,12 +21,12 @@ const updateNoWin = () => {
 }
 
 const updateCurrentMessage = () => {
-    document.getElementById('messageCurrentPlayer').textContent = `Siguiente turno: Jugador ${currentPlayer}`;
+    document.getElementById('messageCurrentPlayer').textContent = `Next Player: ${currentPlayer}`;
 }
 
 const updateWinMessage = () => {
     const messageWinnerPlayer = document.getElementById('messageWinnerPlayer');
-    messageWinnerPlayer.textContent = `Ganador: Jugador ${currentPlayer}`;
+    messageWinnerPlayer.textContent = `Winner: Player ${currentPlayer}`;
     messageWinnerPlayer.style.display = 'block';
     playSoundWin();
     document.querySelectorAll('.div__main, .button, .messageCurrentPlayer, .tittle').forEach(element => {
